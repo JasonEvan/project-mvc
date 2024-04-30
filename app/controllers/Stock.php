@@ -23,12 +23,24 @@ class Stock extends Controller {
         }
     }
 
-    public function jual() {
-        $data["header"] = 'Stock';
+    public function jual($id) {
+        $data["header"] = 'Jual Barang';
+        $data["db"] = $this->model('Stock_model')->getDataById($id);
         $this->view('templates/header', $data);
-        $this->view('templates/navbar');
-        $this->view('stock/jual');
+        $this->view('stock/jual', $data);
         $this->view('templates/footer');
+    }
+
+    public function jualskrg() {
+        if ($this->model('Stock_model')->jualStock($_POST) > 0) {
+            Flasher::setFlash("stock", "berhasil", "dijual", "success");
+            header('Location: '. BASEURL . '/stock');
+            exit;
+        } else {
+            Flasher::setFlash("stock", "gagal", "dijual", "danger");
+            header('Location: ' . BASEURL . '/stock');
+            exit;
+        }
     }
 
 }

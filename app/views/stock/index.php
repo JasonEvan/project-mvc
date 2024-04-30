@@ -27,6 +27,7 @@
                     <th scope="col">Nama Barang</th>
                     <th scope="col">Harga</th>
                     <th scope="col">Stock</th>
+                    <th scope="col">Aksi</th>
                     </tr>
                 </thead>
                 <tbody class="table-group-divider">
@@ -39,6 +40,10 @@
                         <td><?= $row['nama_barang']; ?></td>
                         <td><?= $row['stok_barang']; ?></td>
                         <td><?= $row['harga']; ?></td>
+                        <td>
+                            <a href="<?= BASEURL; ?>/stock/jual/<?= $row["id"]; ?>" class="btn btn-sm btn-info">Jual</a>
+                            <a href="<?= BASEURL; ?>/stock/delete/<?= $row["id"]; ?>" class="btn btn-sm btn-danger">Delete</a>
+                        </td>
                     </tr>
                     <?php endforeach; ?>
                 </tbody>
@@ -47,7 +52,7 @@
     </div>
 </div>
 
-<!-- Modal -->
+<!-- Modal Tambah -->
 <div class="modal fade" id="tambahData" tabindex="-1" aria-labelledby="judulModal" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
