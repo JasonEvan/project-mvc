@@ -13,6 +13,11 @@ class Stock extends Controller {
 
     public function tambah() {
         if ($this->model("Stock_model")->tambahData($_POST) > 0) {
+            Flasher::setFlash("stock", "berhasil", "diupdate", "success");
+            header('Location: ' . BASEURL . '/stock');
+            exit;
+        } else {
+            Flasher::setFlash("stock", "gagal", "diupdate", "danger");
             header('Location: ' . BASEURL . '/stock');
             exit;
         }
