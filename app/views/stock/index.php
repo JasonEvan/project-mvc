@@ -41,8 +41,14 @@
                         <td><?= $row['stok_barang']; ?></td>
                         <td><?= $row['harga']; ?></td>
                         <td>
-                            <a href="<?= BASEURL; ?>/stock/jual/<?= $row["id"]; ?>" class="btn btn-sm btn-info">Jual</a>
-                            <a href="<?= BASEURL; ?>/stock/delete/<?= $row["id"]; ?>" class="btn btn-sm btn-danger">Delete</a>
+                            <div>
+                                <form action="<?= BASEURL; ?>/stock/hapus" method="post">
+                                    <a href="<?= BASEURL; ?>/stock/jual/<?= $row["id"]; ?>" class="btn btn-sm btn-info">Jual</a>
+                                    <input type="hidden" value="<?= $row["id"]; ?>" name="toDeleteId">
+                                    <button class="btn btn-sm btn-danger"
+                                        onclick="return confirm('Apakah yakin ingin menghapus data?')">Delete</button>
+                                </form>
+                            </div>
                         </td>
                     </tr>
                     <?php endforeach; ?>

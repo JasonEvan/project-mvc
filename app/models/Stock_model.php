@@ -65,5 +65,12 @@ class Stock_model {
         $this->db->execute();
         return $this->db->rowCount();
     }
+
+    public function hapusBarang($data) {
+        $this->db->query("DELETE FROM " . $this->table . " WHERE id = :id");
+        $this->db->bind('id', $data["toDeleteId"]);
+        $this->db->execute();
+        return $this->db->rowCount();
+    }
     
 }

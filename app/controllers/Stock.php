@@ -43,4 +43,16 @@ class Stock extends Controller {
         }
     }
 
+    public function hapus() {
+        if ($this->model("Stock_model")->hapusBarang($_POST) > 0) {
+            Flasher::setFlash("stock", "berhasil", "dihapus", "success");
+            header('Location: ' . BASEURL . '/stock');
+            exit;
+        } else {
+            Flasher::setFlash("stock", "gagal", "dihapus", "danger");
+            header('Location: ' . BASEURL . '/stock');
+            exit;
+        }
+    }
+
 }
