@@ -16,4 +16,28 @@ class Utang extends Controller {
         echo json_encode($data["orang"]);
     }
 
+    public function cicil() {
+        if ($this->model("Utang_model")->cicilBarang($_POST) > 0) {
+            Flasher::setFlash("utang", "berhasil", "dilunasi", "success");
+            header('Location: ' . BASEURL . '/utang');
+            exit;
+        } else {
+            Flasher::setFlash("utang", "gagal", "dilunasi", "danger");
+            header('Location: ' . BASEURL . '/utang');
+            exit;
+        }
+    }
+
+    public function hapusUtang($id) {
+        if ($this->model("Utang_model")->hapuslgsg($id) > 0) {
+            Flasher::setFlash("utang", "berhasil", "dihapus", "success");
+            header('Location: ' . BASEURL . '/utang');
+            exit;
+        } else {
+            Flasher::setFlash("utang", "gagal", "dihapus", "danger");
+            header('Location: ' . BASEURL . '/utang');
+            exit;
+        }
+    }
+
 }

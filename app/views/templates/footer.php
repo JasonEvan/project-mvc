@@ -14,11 +14,18 @@
                 dataType: 'json',
                 success: function(objData) {
                     
+                    $('#utang_id').attr('value', objData.id);
                     $('#nama_supplier').val(objData.nama_supplier);
                     $('#nama_barang_utang').val(objData.nama_barang);
-                    $('#stok_barang_utang').val(objData.stok_barang_utang);
-                    $('#harga_utang').val(objData.harga);
+                    $('#utangHelp').html("Harga: " + objData.harga + " Jumlah Utang: " + objData.stok_barang_utang);
 
+                    $('#stok_barang_utang').on('input', function() {
+                        if ($(this).val() > objData.stok_barang_utang) {
+                            $(this).val(objData.stok_barang_utang);
+                        }
+                        $('#harga_utang').val(objData.harga * $(this).val());
+
+                    });
                 }
             });
 

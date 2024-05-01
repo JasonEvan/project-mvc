@@ -1,6 +1,11 @@
 <div class="container mt-3">
     <div class="row">
         <div class="col">
+            <?php Flasher::flash(); ?>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
         <form class="d-flex justify-content-end" role="search">
             <input class="form-control me-2 w-25" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success" type="submit">Search</button>
@@ -35,8 +40,8 @@
                             <div>
                                 <button class="btn btn-sm btn-info button-trigger-utangModal" data-bs-toggle="modal" data-bs-target="#cicilBarang" 
                                 data-id="<?= $row['id']; ?>">Cicil</button>
-                                <button class="btn btn-sm btn-danger"  
-                                    onclick="return confirm('Apakah yakin melunasi semua?')">Lunasi</button>
+                                <a class="btn btn-sm btn-danger" href="<?= BASEURL; ?>/utang/hapusUtang/<?= $row['id']; ?>" 
+                                    onclick="return confirm('Apakah yakin melunasi semua?')">Lunasi</a>
                             </div>
                         </td>
                     </tr>
@@ -56,7 +61,8 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form action="<?= BASEURL; ?>/stock/cicil" method="post">
+        <form action="<?= BASEURL; ?>/utang/cicil" method="post">
+            <input type="hidden" id="utang_id" name="utang_id">
             <div class="mb-3">
                 <label for="nama_supplier" class="form-label">Nama Supplier</label>
                 <input type="text" class="form-control" id="nama_supplier" aria-describedby="nama_supplier" name="nama_supplier" readonly>
@@ -66,16 +72,13 @@
                 <input type="text" class="form-control" id="nama_barang_utang" aria-describedby="nama_barang_utang" name="nama_barang_utang" readonly>
             </div>
             <div class="mb-3">
-                <label for="stok_barang_utang" class="form-label">Stock Utang</label>
-                <input type="number" class="form-control" id="stok_barang_utang" name="stok_barang_utang" readonly>
-            </div>
-            <div class="mb-3">
-                <label for="harga" class="form-label">Harga</label>
+                <label for="harga" class="form-label">Total Harga</label>
                 <input type="number" class="form-control" id="harga_utang" name="harga_tambah" readonly>
             </div>
-            <div class="mb-3 form-check">
-                <input type="checkbox" class="form-check-input" id="utang">
-                <label class="form-check-label" for="utang">Utang Barang</label>
+            <div class="mb-3">
+                <label for="stok_barang_utang" class="form-label">Stock Utang</label>
+                <input type="number" class="form-control" id="stok_barang_utang" name="stok_barang_utang">
+                <div id="utangHelp" class="form-text"></div>
             </div>
       </div>
       <div class="modal-footer">

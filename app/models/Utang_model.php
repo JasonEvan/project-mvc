@@ -20,4 +20,28 @@ class Utang_model {
         return $this->db->singleSet();
     }
 
+    public function cicilBarang($data) {
+        $this->db->query("SELECT * FROM " . $this->table . " WHERE id = :id");
+        $this->db->bind('id', $data['utang_id']);
+        $data_lama = $this->db->singleSet();
+
+        if ($data_lama["stok_barang_utang"] - $data["stok_barang_utang"] < 1) {
+            $this->db->query("DELETE FROM " . $this->table . " WHERE id = :id");
+        } else {
+            $this->db->query("UPDATE " . $this->table . " SET stok_barang_utang = stok_barang_utang - :stok WHERE id = :id");
+            $this->db->bind('stok', $data["stok_barang_utang"]);
+        }
+
+        $this->db->bind('id', $data['utang_id']);
+        $this->db->execute();
+        return $this->db->rowCount();
+    }
+
+    public function hapuslgsg($id) {
+        $this->db->query("DELETE FROM " . $this->table . " WHERE id = :id");
+        $this->db->bind('id', $id);
+        $this->db->execute();
+        return $this->db->rowCount();
+    }
+
 }
