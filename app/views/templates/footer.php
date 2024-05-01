@@ -31,6 +31,7 @@
 
         });
 
+
         $('#stok_barang_piutang').on('input', function() {
             const stok = $(this).data('stok');
             const hargaPiutang = $('#harga_barang_piutang').data('hargapiutang');
@@ -41,6 +42,42 @@
             }
 
             $('#harga_barang_piutang').val(hargaPiutang * $(this).val());
+        });
+
+
+        $('#utang-checkbox').on('change', function() {
+            if ($(this).prop('checked')) {
+                $('.nama-supplier-display').removeClass('d-none');
+                $('#nama_supplier_utang').attr('name', 'nama_supplier');
+            } else {
+                $('.nama-supplier-display').addClass('d-none');
+                $('#nama_supplier_utang').removeAttr('name');
+            }
+        });
+
+
+        $('#submit-utang').on('click', function() {
+            if ($('#utang-checkbox').prop('checked')) {
+                const nama = $('#nama_supplier_utang').val();
+                const nama_barang = $('#nama_barang').val();
+                const stok = $('#stok_barang').val();
+                const harga= $('#harga').val();
+
+                $.ajax({
+                    url: "http://localhost/project-mvc/public/utang/tambah",
+                    data: { 
+                        nama_supplier: nama,
+                        nama_barang: nama_barang,
+                        stok_barang: stok,
+                        harga: harga 
+                    },
+                    method: 'post',
+                    dataType: 'text',
+                    success: function(pesan) {
+                        alert('Utang ' + pesan + ' ditambahkan');
+                    }
+                });
+            }
         });
 
     });

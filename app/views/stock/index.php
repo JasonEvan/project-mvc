@@ -81,13 +81,17 @@
                 <input type="number" class="form-control" id="harga" name="harga_tambah">
             </div>
             <div class="mb-3 form-check">
-                <input type="checkbox" class="form-check-input" id="utang">
-                <label class="form-check-label" for="utang">Utang Barang</label>
+                <input type="checkbox" class="form-check-input" id="utang-checkbox">
+                <label class="form-check-label" for="utang-checkbox">Utang Barang</label>
+            </div>
+            <div class="mb-3 d-none nama-supplier-display">
+                <label for="nama_supplier_utang" class="form-label">Nama Supplier</label>
+                <input type="text" class="form-control" id="nama_supplier_utang">
             </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary">Save changes</button>
+        <button type="submit" class="btn btn-primary" id="submit-utang">Save changes</button>
       </div>
       </form>
     </div>

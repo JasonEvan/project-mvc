@@ -40,4 +40,12 @@ class Utang extends Controller {
         }
     }
 
+    public function tambah() {
+        if ($this->model("Utang_model")->tambahUtang($_POST) > 0) {
+            echo "berhasil";
+        } else {
+            echo "gagal";
+        }
+    }
+
 }

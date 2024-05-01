@@ -44,4 +44,14 @@ class Utang_model {
         return $this->db->rowCount();
     }
 
+    public function tambahUtang($data) {
+        $this->db->query("INSERT INTO " . $this->table . " (nama_supplier, nama_barang, stok_barang_utang, harga) VALUES (:namasup, :barang, :stok, :harga)");
+        $this->db->bind('namasup', $data["nama_supplier"]);
+        $this->db->bind('barang', $data["nama_barang"]);
+        $this->db->bind('stok', $data["stok_barang"]);
+        $this->db->bind('harga', $data["harga"]);
+        $this->db->execute();
+        return $this->db->rowCount();
+    }
+
 }
