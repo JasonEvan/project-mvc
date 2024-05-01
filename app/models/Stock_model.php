@@ -14,7 +14,7 @@ class Stock_model {
     }
 
     public function getTenStock() {
-        $this->db->query("SELECT * FROM " . $this->table . " LIMIT 10");
+        $this->db->query("SELECT * FROM " . $this->table . " ORDER BY stok_barang DESC LIMIT 10");
         return $this->db->resultSet();
     }
 

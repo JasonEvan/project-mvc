@@ -31,6 +31,18 @@
 
         });
 
+        $('#stok_barang_piutang').on('input', function() {
+            const stok = $(this).data('stok');
+            const hargaPiutang = $('#harga_barang_piutang').data('hargapiutang');
+            console.log($('#harga_barang_piutang').data('hargaPiutang'));
+
+            if ($(this).val() > stok) {
+                $(this).val(stok);
+            }
+
+            $('#harga_barang_piutang').val(hargaPiutang * $(this).val());
+        });
+
     });
 
 </script>
