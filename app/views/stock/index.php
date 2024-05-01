@@ -45,7 +45,7 @@
                                 <form action="<?= BASEURL; ?>/stock/hapus" method="post">
                                     <a href="<?= BASEURL; ?>/stock/jual/<?= $row["id"]; ?>" class="btn btn-sm btn-info">Jual</a>
                                     <input type="hidden" value="<?= $row["id"]; ?>" name="toDeleteId">
-                                    <button class="btn btn-sm btn-danger"
+                                    <button class="btn btn-sm btn-danger" type="submit"
                                         onclick="return confirm('Apakah yakin ingin menghapus data?')">Delete</button>
                                 </form>
                             </div>

@@ -1,5 +1,31 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-<script src="js/script.js"></script>
+<script>
+
+    $(document).ready(function() {
+
+        $('.button-trigger-utangModal').on('click', function() {
+            const id = $(this).data('id');
+
+            $.ajax({
+                url: 'http://localhost/project-mvc/public/utang/getUtangById',
+                data: { id: id },
+                method: 'post',
+                dataType: 'json',
+                success: function(objData) {
+                    
+                    $('#nama_supplier').val(objData.nama_supplier);
+                    $('#nama_barang_utang').val(objData.nama_barang);
+                    $('#stok_barang_utang').val(objData.stok_barang_utang);
+                    $('#harga_utang').val(objData.harga);
+
+                }
+            });
+
+        });
+
+    });
+
+</script>
 </body>
 </html>

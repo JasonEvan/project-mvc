@@ -17,11 +17,9 @@
             Utang Piutang
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="<?= BASEURL; ?>/utang/index">Tambah Utang</a></li>
-            <li><a class="dropdown-item" href="<?= BASEURL; ?>/piutang/index">Tambah Piutang</a></li>
+            <li><a class="dropdown-item" href="<?= BASEURL; ?>/utang/index">Utang</a></li>
+            <li><a class="dropdown-item" href="<?= BASEURL; ?>/piutang/index">Piutang</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="<?= BASEURL; ?>/utang/lunasi">Lunasi Utang</a></li>
-            <li><a class="dropdown-item" href="<?= BASEURL; ?>/piutang/lunasi">Lunasi Piutang</a></li>
           </ul>
         </li>
     </ul>
