@@ -25,8 +25,8 @@
                     <tr>
                     <th scope="col">#</th>
                     <th scope="col">Nama Barang</th>
-                    <th scope="col">Harga</th>
                     <th scope="col">Stock</th>
+                    <th scope="col">Harga</th>
                     <th scope="col">Aksi</th>
                     </tr>
                 </thead>
