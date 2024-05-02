@@ -1,6 +1,11 @@
 <div class="container mt-3">
     <div class="row">
         <div class="col">
+            <?php Flasher::flash(); ?>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
             <h3>10 Stock Terbanyak Saat Ini</h3>
         </div>
     </div>

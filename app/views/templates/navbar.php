@@ -9,6 +9,17 @@
         <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="<?= BASEURL; ?>/home/index">Home</a>
         </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Daftar
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="<?= BASEURL; ?>/daftar/index">Tabel Stock</a></li>
+            <li><a class="dropdown-item" href="<?= BASEURL; ?>/daftar/langganan">Tabel Langganan</a></li>
+            <li><a class="dropdown-item" href="<?= BASEURL; ?>/daftar/supplier">Tabel Supplier</a></li>
+            <li><a class="dropdown-item" href="<?= BASEURL; ?>/daftar/salesman">Tabel Salesman</a></li>
+          </ul>
+        </li>
         <li class="nav-item">
             <a class="nav-link" aria-current="page" href="<?= BASEURL; ?>/stock">Stock</a>
         </li>
@@ -19,7 +30,6 @@
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="<?= BASEURL; ?>/utang/index">Utang</a></li>
             <li><a class="dropdown-item" href="<?= BASEURL; ?>/piutang/index">Piutang</a></li>
-            <li><hr class="dropdown-divider"></li>
           </ul>
         </li>
     </ul>
