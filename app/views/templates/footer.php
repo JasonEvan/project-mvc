@@ -40,6 +40,31 @@
             }
         });
 
+        $('#submit-sales').on('click', function() {
+            const nama_sales = $('#nama_sales').val();
+            const no_telp_sales = $('#no_telp_sales').val();
+            let no_depan = 0;
+
+            if ($('#no_depan').val() != 0 && $('#no_depan').val() != null) {
+                no_depan = $('#no_depan').val();
+            }
+
+            $.ajax({
+                url: 'http://localhost/project-mvc/public/daftar/tambahsalesman',
+                data: {
+                    nama_sales: nama_sales,
+                    no_telp_sales: no_telp_sales,
+                    no_depan: no_depan
+                },
+                method: 'post',
+                dataType: 'text',
+                success: function(responseText) {
+                    alert(`Data Salesman ${responseText} ditambahkan`);
+                    window.location.href = 'http://localhost/project-mvc/public/home';
+                }
+            });
+        });
+
     });
 
 </script>

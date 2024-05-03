@@ -59,4 +59,19 @@ class Daftar extends Controller {
         }
     }
 
+    public function salesman() {
+        $data["header"] = "Daftar";
+        $this->view("templates/header", $data);
+        $this->view("daftar/salesman");
+        $this->view("templates/footer");
+    }
+
+    public function tambahsalesman() {
+        if ($this->model("Daftar_model")->salesmanBaru($_POST) > 0) {
+            echo "berhasil";
+        } else {
+            echo "gagal";
+        }
+    }
+
 }
