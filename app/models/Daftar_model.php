@@ -18,4 +18,26 @@ class Daftar_model {
         $this->db->execute();
         return $this->db->rowCount();
     }
+
+    public function langgananBaru($data) {
+        $this->db->query("INSERT INTO daftar_langganan (nama_langganan, kota_langganan, alamat_langganan, no_telp_langganan) VALUES (
+                            :nama, :kota, :alamat, :notelp)");
+        $this->db->bind('nama', $data["nama_langganan"]);
+        $this->db->bind('kota', $data["kota_langganan"]);
+        $this->db->bind('alamat', $data["alamat_langganan"]);
+        $this->db->bind('notelp', $data["no_telp_langganan"]);
+        $this->db->execute();
+        return $this->db->rowCount();
+    }
+
+    public function supplierBaru($data) {
+        $this->db->query("INSERT INTO daftar_supplier (nama_supplier, kota_supplier, alamat_supplier, no_telp_supplier) VALUES (
+            :nama, :kota, :alamat, :notelp)");
+        $this->db->bind('nama', $data["nama_supplier"]);
+        $this->db->bind('kota', $data["kota_supplier"]);
+        $this->db->bind('alamat', $data["alamat_supplier"]);
+        $this->db->bind('notelp', $data["no_telp_supplier"]);
+        $this->db->execute();
+        return $this->db->rowCount();
+    }
 }
