@@ -89,4 +89,6 @@ class Daftar_model {
             return 0;
         }
     }
+
+    
 }
