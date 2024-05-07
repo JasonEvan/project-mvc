@@ -234,6 +234,7 @@
                     success: function(result) {
                         if (result == "berhasil") {
                             alert("Penjualan berhasil");
+                            window.location.href = 'http://localhost/project-mvc/public/home';
                         } else {
                             alert('Penjualan gagal');
                         }

@@ -109,14 +109,15 @@ class Transaksi_model {
 
         // masukin list barang beli ke database nota
         if ($isNotaNumber) {
-            $this->db->query("INSERT INTO data_nota (no_nota, waktu, rincian) VALUES(
-                                :no_nota, :waktu, :rincian)");
+            $this->db->query("INSERT INTO data_nota (id_nama_langganan, no_nota, waktu, rincian) VALUES(
+                                :id, :no_nota, :waktu, :rincian)");
             $this->db->bind('no_nota', $post["no_nota"]);
         } else {
-            $this->db->query("INSERT INTO data_nota (no_nota, waktu, rincian) VALUES(
-                                :waktu, :rincian)");
+            $this->db->query("INSERT INTO data_nota (id_nama_langganan, no_nota, waktu, rincian) VALUES(
+                                :id, :waktu, :rincian)");
         }
 
+        $this->db->bind('id', $post["id_nama_langganan"]);
         $this->db->bind('waktu', $post["tanggal"]);
         $this->db->bind('rincian', "[" . json_encode($post["datas"]) . "]");
         $this->db->execute();
